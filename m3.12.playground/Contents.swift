@@ -1,54 +1,66 @@
 import UIKit
 
 
-// Задание 1
-func nextNumber(number: Int) -> Int {
-    return number+1
+//Задание 1
+func checkEqual(number1: Int, number2: Int) -> String {
+    if number1 == number2 {
+        return "равно"
+    }
+    else if number1 > number2 {
+        return "больше"
+    }
+    else {
+        return "меньше"
+    }
 }
 
-let resultNextNum = nextNumber(number: 5)
-print(resultNextNum)
+let getEqual = checkEqual(number1: 30, number2: 20)
+print(getEqual)
 
 
 //Задание 2
-func getSquare(number: Int) -> Int {
-    return number * number
+func summ(toValue: Int) -> Int {
+    var valSum = 0
+    for number in 1...toValue {
+        if number%2 == 0 {
+            continue
+        }
+        else if number%2 > 0 {
+            valSum=valSum + number
+        }
+    }
+    return valSum
 }
 
-let resultGetSquare = getSquare(number: 3)
-print(resultGetSquare)
+let getSumm = summ(toValue: 10)
+print(getSumm)
 
 
 //Задание 3
-func getTime(seconds: Int) -> (minutes: Int, seconds: Int) {
-    let getSec = seconds%60
-    let getMin = (seconds - getSec)/60
-    return (getMin, getSec)
+func squereNumber(number: Int) {
+    for numb in 1...number {
+        if numb*numb > number {
+            break
+        }
+        else {
+            print(numb)
+        }
+    }
 }
-
-let resultGetTime = getTime(seconds: 1400)
-print("\(resultGetTime.minutes) мин. \(resultGetTime.seconds) сек.")
+squereNumber(number: 10)
 
 
 //Задание 4
-func concatString(string1: String, string2: String) -> String {
-    return string1 + string2
+func handleDiceRoll(result: Int) {
+    switch result {
+    case 1,2,3:
+        print("проигрыш")
+    case 4,5,6:
+        print("победа")
+    default:
+        break
+    }
 }
 
-let string1 = "Writing Swift code "
-let string2 = "is interactive and fun"
+handleDiceRoll(result: 6)
 
-let resultConcatString = concatString(string1: string1, string2: string2)
-print(resultConcatString)
-
-//Задание 5
-func getDate(stringDate: String) -> Date {
-    let dateFormatter = DateFormatter()
-    dateFormatter.dateFormat = "yyyy-MM-dd"
-    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-    let date = dateFormatter.date(from:stringDate)!
-    return date
-}
-
-let resultGetDate = getDate(stringDate: "2004-11-23")
-print(resultGetDate)
