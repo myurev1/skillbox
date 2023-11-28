@@ -45,7 +45,7 @@ print(resultConcatString)
 func getDate(stringDate: String) -> Date {
     let dateFormatter = DateFormatter()
     dateFormatter.dateFormat = "yyyy-MM-dd"
-    dateFormatter.locale = Locale(identifier: "MSK")
+    dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
     let date = dateFormatter.date(from:stringDate)!
     return date
 }
