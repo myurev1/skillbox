@@ -9,11 +9,20 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var numb: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func onBottonPressed(_ sender: Any) {
+        addOne()
+    }
+    func addOne() -> Void {
+        var oldNumb = Int(numb.text!.split(separator: " ")[1])
+        var newNumb = oldNumb! + 1
+        numb.text = "Нажатий: \(String(newNumb))"
+    }
+    
 }
 
