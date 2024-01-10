@@ -38,13 +38,13 @@ enum listAnimal {
 
 //Задание 1
 class Animal {
-    var energy: Int
-    var weight: Int
-    var currentAge: Int
-    var maxAge: Int
-    var name: String
-    var checkMove: Bool?
-    var isTooOld: Bool {
+    private var energy: Int
+    private var weight: Int
+    private var currentAge: Int
+    private var maxAge: Int
+    private var name: String
+    private var checkMove: Bool?
+    fileprivate var isTooOld: Bool {
         return currentAge >= maxAge
     }
     
@@ -56,18 +56,18 @@ class Animal {
         self.name = name
     }
     
-    func tryIncrementAge() -> Void {
+    private func tryIncrementAge() -> Void {
         if (Bool.random()) {
             currentAge = currentAge + 1
         }
     }
     
-    func getType() -> String {
+    fileprivate func getType() -> String {
         let typeAnimal = listAnimal.animal
         return typeAnimal.getName()
     }
     
-    func getMove() -> String {
+    fileprivate func getMove() -> String {
         let moveAnimal = listAnimal.animal
         return moveAnimal.getAction()
     }
@@ -101,7 +101,7 @@ class Animal {
         }
     }
     
-    func getBirthСhildСharacteristics() -> [String: String]{
+    fileprivate func getBirthСhildСharacteristics() -> [String: String]{
         var type = getType()
         var childEnergy = Int.random(in: 1...10)
         var childWeight = Int.random(in: 1...5)
